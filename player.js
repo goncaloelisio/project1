@@ -14,14 +14,14 @@ class Player {
     }
 
     toggleTurn() {
+        this.score += this.currentScore;
+        this.currentScore = 0;
+        this.checkIfWon();
         this.activePlayer = !this.activePlayer;
         document.querySelector(`.player-${this.playerNr}`).classList.toggle('active');
+        document.querySelector(`.player-${this.playerNr} .player-score`).textContent = this.score;
     }
 
-    passOnTurn() {
-        this.currentScore = 0;
-        this.game.takeTurn();
-    }
 
     throwDice() {
         if (this.activePlayer) {
@@ -47,10 +47,7 @@ class Player {
             document.querySelector(`.player-${this.playerNr}`).classList.remove('active');
             this.playing = false;
         
-        } else {
-        
-            this.passOnTurn();
-        }
+        } 
     }
 
     eventBindings() {
@@ -59,15 +56,6 @@ class Player {
                 this.throwDice();
             }
         });
-
-        document.querySelector(".btn-collect").addEventpmListener("click", () => {
-            this.score += this.currentScore;
-            this.currentScore = 0;
-            document.querySelector(`.player-${this.playerNr} .player-score`).textContent = this.score;
-            this.checkIfWon();
-            this.passOnTurn();
-        });
-
     }
 }
 

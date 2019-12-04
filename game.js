@@ -5,6 +5,7 @@ class Game {
     this.turnCount = 0;
     this.currentPlayer = this.players[this.turnCount];
     this.Playing = true;
+    this.initDomBindings();
    }
 
    takeTurn(){
@@ -26,8 +27,20 @@ class Game {
        document.getElementById('current-2').textContent = '0';
        
        document.querySelector('.player-1').classList.add('active');
+
    }
 
+   initDomBindings() {
+        document.querySelector(".btn-collect").addEventListener("click", () => {
+            this.takeTurn();
+        });
+    }
+
+   resetGame(){
+       // window.location.href = window.location.href; // triggers refresh
+
+    this.gameEngine();
+   }
 }
 
 let game;
@@ -35,7 +48,6 @@ let game;
 document.querySelector('.btn-new').addEventListener('click',() =>{
     
     game = new Game();
-    game.gameEngine();
     Player.score = 0;
     game.start();
 
