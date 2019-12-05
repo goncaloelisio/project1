@@ -34,4 +34,5 @@ class Dice{
         return currentThrow + 1; // index starts at 0, dice dont
     }
 
+    
 }
