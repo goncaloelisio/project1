@@ -14,10 +14,7 @@ class Player {
     static currentThrow = 0;
     static playerCount = 0;
 
-    switcher(player) {
-        if (player = 1) return 2
-        else if (player = 2) return 1
-    }
+    
 
 
     toggleTurn() {
@@ -27,7 +24,7 @@ class Player {
         this.checkIfWon();
         this.activePlayer = !this.activePlayer;
         document.querySelector(`.player-${this.playerNr}`).classList.toggle('active');
-        // document.querySelector(`.player-${this.switcher(this.playerNr)}`).classList.toggle('active');
+        //document.querySelector(`.player-${this.playerNr}`).classList.toggle('active');
         document.querySelector(`.player-${this.playerNr} .player-score`).textContent = this.score;
         
     }
@@ -66,18 +63,16 @@ class Player {
                 this.throwDice();
                 this.bulletDice();
             }
-        
         });
     }
 
     bulletDice() {
       
         if(this.currentThrow === 3){
-           
             alert("BOOM");
             this.currentScore = 0;
             document.querySelector(`.player-${this.playerNr} .current-player-score`).textContent = this.currentScore;
-            this.toggleTurn();
+            this.game.takeTurn();
         }
     }
 }
