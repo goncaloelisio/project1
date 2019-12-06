@@ -89,7 +89,7 @@ body {
 }
 
 .active {
-    background-color: #2ec400 !important;
+    background-color: #00c479f6 !important;
     animation: pulse 2s ease 0s infinite;
 }
 
@@ -139,8 +139,8 @@ body {
     padding: 10px 0;
     width: 250px;
     text-transform: uppercase;
-
-    margin-top: 20px;
+    margin-left: 539px;
+    margin-top: 40px;
 }
 
 .game {
@@ -151,6 +151,26 @@ body {
 .player-2 {
     width: 20%;
     margin: 35px;
-    border: groove 20px rgb(255, 174, 0);
+    border: groove 20px rgba(0, 255, 157, 0.397);
     background-color: #defdd5;
+}
+
+#dice-container{
+    margin-top: 60px;
+}
+
+#text{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    max-width: 500px;
+    display: flex;
+    text-align: center;
+    color: #defdd5;
+    text-shadow: 2px 2px 7px #0D1E14;
+}
+
+.middle{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }

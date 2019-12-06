@@ -53,9 +53,10 @@ class Game {
 let game;
 
 document.querySelector('.btn-new').addEventListener('click', () => {
-
+    document.querySelector(".btn-roll").hidden = false;
+    document.querySelector(".btn-collect").hidden = false;
     game = new Game();
-    Player.score = 0;
+    
     game.start();
 
 });

@@ -18,13 +18,12 @@ class Player {
 
 
     toggleTurn() {
-      
+        document.querySelector(`.player-${this.playerNr} .current-player-score`).textContent = this.currentScore;
         this.score += this.currentScore;
         this.currentScore = 0;
         this.checkIfWon();
         this.activePlayer = !this.activePlayer;
         document.querySelector(`.player-${this.playerNr}`).classList.toggle('active');
-        //document.querySelector(`.player-${this.playerNr}`).classList.toggle('active');
         document.querySelector(`.player-${this.playerNr} .player-score`).textContent = this.score;
         
     }
@@ -52,14 +51,16 @@ class Player {
             document.querySelector(`#name-${this.playerNr}`).textContent = 'Winner!';
             document.querySelector(`.player-${this.playerNr}`).classList.add('winner');
             document.querySelector(`.player-${this.playerNr}`).classList.remove('active');
+            document.querySelector(".btn-roll").hidden = true;
+            document.querySelector(".btn-collect").hidden = true;
             this.game.playing = false;
-            
         } 
     }
 
     eventBindings() {
         document.querySelector(".btn-roll").addEventListener("click", () => {
-            if(this.game.playing){
+                
+            if(this.activePlayer){
                 this.throwDice();
                 this.bulletDice();
             }
@@ -69,7 +70,7 @@ class Player {
     bulletDice() {
       
         if(this.currentThrow === 3){
-            alert("BOOM");
+            alert("BOOM is a 3");
             this.currentScore = 0;
             document.querySelector(`.player-${this.playerNr} .current-player-score`).textContent = this.currentScore;
             this.game.takeTurn();
