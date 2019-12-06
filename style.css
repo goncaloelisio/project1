@@ -100,7 +100,7 @@ body {
     width: 100%;
     padding: 12px 0;
     text-align: center;
-    border-top: solid 5px black;
+    border-top: solid 3px black;
 }
 
 .current-player-label {

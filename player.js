@@ -53,7 +53,11 @@ class Player {
             document.querySelector(`.player-${this.playerNr}`).classList.remove('active');
             document.querySelector(".btn-roll").hidden = true;
             document.querySelector(".btn-collect").hidden = true;
-            this.game.playing = false;
+            document.querySelector(".btn-new").hidden = true;
+
+            setInterval(() => {
+             window.location.href = window.location.href;
+            }, 10000);
         } 
     }
 

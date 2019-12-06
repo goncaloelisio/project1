@@ -1,5 +1,6 @@
 class Game {
     constructor() {
+        Player.playerCount = 0;
         this.players = [new Player(this), new Player(this)];
         this.winningValue = 50;
         this.turnCount = 0;
@@ -43,11 +44,6 @@ class Game {
         });
      }
 
-    resetGame() {
-        // window.location.href = window.location.href; // triggers refresh
-
-        this.gameEngine();
-     }
 }
 
 let game;
@@ -56,7 +52,6 @@ document.querySelector('.btn-new').addEventListener('click', () => {
     document.querySelector(".btn-roll").hidden = false;
     document.querySelector(".btn-collect").hidden = false;
     game = new Game();
-    
     game.start();
 
 });
@@ -68,6 +63,3 @@ document.querySelector('.btn-new').addEventListener('click', () => {
 
 
 
-// setInterval(() => {
-//     game.showDice();
-// }, 500);
